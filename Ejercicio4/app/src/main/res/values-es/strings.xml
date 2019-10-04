@@ -2,4 +2,9 @@
 <resources>
     <string name="app_name">Ejercicio4</string>
     <string name="geneButton">Botón</string>
+    <string name="ButtonOn">Encendido</string>
+    <string name="ButtonOff">Apagado</string>
+    <string name="geneCheckBox">CheckBox</string>
+    <string name="geneSwitchOff">Apagado</string>
+
 </resources>
