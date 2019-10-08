@@ -3,6 +3,7 @@
     <string name="geneButton">Button</string>
     <string name="ButtonOn">On</string>
     <string name="ButtonOff">Off</string>
+    <string name="toggleButton" translatable="false">ToggleButton</string>
     <string name="geneCheckBox">CheckBox</string>
     <string name="seekBar" translatable="false">SeekBar</string>
     <string name="seekBarNumber" translatable="false">0</string>
