@@ -157,7 +157,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="@string/ButtonOn"
+        android:text="@string/ButtonOff"
         app:layout_constraintBottom_toBottomOf="@+id/switch1"
         app:layout_constraintEnd_toStartOf="@+id/switch1"
         app:layout_constraintTop_toTopOf="@+id/switch1" />
@@ -195,7 +195,7 @@
         android:id="@+id/txtSeekBarNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/seekBarNumber"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/seekBar"
