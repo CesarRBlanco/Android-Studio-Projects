@@ -4,6 +4,10 @@
     <string name="ButtonOn">On</string>
     <string name="ButtonOff">Off</string>
     <string name="geneCheckBox">CheckBox</string>
-    <string name="geneSwitchOff">Off</string>
+    <string name="seekBar" translatable="false">SeekBar</string>
+    <string name="seekBarNumber" translatable="false">0</string>
+    <string name="TextPlain">Name</string>
+    <string name="RatingBar" translatable="false">RatingBar</string>
+    <string name="ImageButtonText">ImageButton and Button with an image</string>
 
 </resources>

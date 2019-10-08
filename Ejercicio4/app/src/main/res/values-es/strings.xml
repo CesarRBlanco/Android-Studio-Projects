@@ -5,6 +5,8 @@
     <string name="ButtonOn">Encendido</string>
     <string name="ButtonOff">Apagado</string>
     <string name="geneCheckBox">CheckBox</string>
-    <string name="geneSwitchOff">Apagado</string>
+    <string name="TextPlain">Nombre</string>
+    <string name="ImageButtonText">ImageButton y Button con una imagen</string>
+
 
 </resources>
