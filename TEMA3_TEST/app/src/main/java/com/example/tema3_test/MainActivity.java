@@ -19,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
         Button btn=findViewById(R.id.button);
         final EditText txt=findViewById(R.id.editText);
         final TextView txtV=findViewById(R.id.textView2);
-        Intent ite=getIntent();
-txtV.setText(ite.getStringExtra("RATING"));
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
