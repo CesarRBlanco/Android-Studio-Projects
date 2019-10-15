@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Tema3_Ej1</string>
+    <string name="GeneButton">Send</string>
+    <string name="EditTextName">Name</string>
+</resources>
