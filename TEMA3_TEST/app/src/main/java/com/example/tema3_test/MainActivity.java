@@ -6,8 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
+
+import java.sql.Time;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,17 +20,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Button btn=findViewById(R.id.button);
-        final EditText txt=findViewById(R.id.editText);
-        final TextView txtV=findViewById(R.id.textView2);
-
-        btn.setOnClickListener(new View.OnClickListener() {
+        final TextView txt=findViewById(R.id.textView);
+        TimePicker tp=findViewById(R.id.timePicker);
+        tp.setIs24HourView(true);
+        tp.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, Main2Activity.class);
-               intent.putExtra("TEXTO",txt.getText().toString());
-                startActivity(intent);
+            public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+                txt.setText(hourOfDay+":"+minute);
+                Toast.makeText(MainActivity.this,hourOfDay+":"+minute, Toast.LENGTH_SHORT).show();
             }
         });
     }
