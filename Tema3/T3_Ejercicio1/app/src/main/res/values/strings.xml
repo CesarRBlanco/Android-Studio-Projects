@@ -2,5 +2,7 @@
     <string name="app_name">T3_Ejercicio1</string>
     <string name="GeneButtonSend">Send</string>
     <string name="EditTextName">Name</string>
+    <string name="EditTextAge">Age</string>
+    <string name="GeneButtonBack">Back</string>
 </resources>
 
