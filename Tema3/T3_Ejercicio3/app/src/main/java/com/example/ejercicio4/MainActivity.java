@@ -2,6 +2,7 @@ package com.example.ejercicio4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,44 +10,51 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
-int i=0;
+    int i = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final ToggleButton tgBtn=findViewById(R.id.toggleButton);
-        final CheckBox chkBox1=findViewById(R.id.checkBox1);
-        final CheckBox chkBox2=findViewById(R.id.checkBox2);
-        final CheckBox chkBox3=findViewById(R.id.checkBox3);
-        final SeekBar seekB =findViewById(R.id.seekBar);
-        final TextView txtSeekBN=findViewById(R.id.txtSeekBarNumber);
-        final Switch switch1=findViewById(R.id.switch1);
-        final TextView txtSwitch=findViewById(R.id.txtSwitch);
-        final Button btn1=findViewById(R.id.button1);
-        final RatingBar rtnB=findViewById(R.id.ratingBar);
-        final EditText txtName=findViewById(R.id.editText);
-        final ImageButton imgBtn=findViewById(R.id.imageButton);
-        final TextView txtImgBtn=findViewById(R.id.txtImgBtn);
+        final ToggleButton tgBtn = findViewById(R.id.toggleButton);
+        final CheckBox chkBox1 = findViewById(R.id.checkBox1);
+        final CheckBox chkBox2 = findViewById(R.id.checkBox2);
+        final CheckBox chkBox3 = findViewById(R.id.checkBox3);
+        final SeekBar seekB = findViewById(R.id.seekBar);
+        final TextView txtSeekBN = findViewById(R.id.txtSeekBarNumber);
+        final Switch switch1 = findViewById(R.id.switch1);
+        final TextView txtSwitch = findViewById(R.id.txtSwitch);
+        final Button btn1 = findViewById(R.id.button1);
+        final RatingBar rtnB = findViewById(R.id.ratingBar);
+        final EditText txtName = findViewById(R.id.editText);
+        final ImageButton imgBtn = findViewById(R.id.imageButton);
+        final TextView txtImgBtn = findViewById(R.id.txtImgBtn);
+        final RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+
+
         tgBtn.setOnClickListener(new View.OnClickListener() {
-       @Override
-       public void onClick(View v) {
-           if(tgBtn.isChecked()){
-               chkBox1.setChecked(true);
-           }else{
-               chkBox1.setChecked(false);
-           }
-       }
-   });
+            @Override
+            public void onClick(View v) {
+                if (tgBtn.isChecked()) {
+                    chkBox1.setChecked(true);
+                } else {
+                    chkBox1.setChecked(false);
+                }
+            }
+        });
 
         seekB.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -71,9 +79,9 @@ int i=0;
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(switch1.isChecked()){
+                if (switch1.isChecked()) {
                     txtSwitch.setText(getText(R.string.ButtonOn));
-                }else{
+                } else {
                     txtSwitch.setText(getText(R.string.ButtonOff));
                 }
             }
@@ -95,12 +103,27 @@ int i=0;
         imgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            if(chkBox2.isChecked()){
-                i--;
-            }else{
-                i++;
+                if (chkBox2.isChecked()) {
+                    i--;
+                } else {
+                    i++;
+                }
+                txtImgBtn.setText("" + i);
             }
-            txtImgBtn.setText(""+i);
+        });
+
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton rb1 = (RadioButton) findViewById(R.id.radioButton);
+                RadioButton rb2 = (RadioButton) findViewById(R.id.radioButton2);
+                if (checkedId == R.id.radioButton) {
+                    Toast.makeText(MainActivity.this, "arb1", Toast.LENGTH_SHORT);
+                } else {
+                    Toast.makeText(MainActivity.this, "rb2", Toast.LENGTH_SHORT);
+                }
             }
         });
 

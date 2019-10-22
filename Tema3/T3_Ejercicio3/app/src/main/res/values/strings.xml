@@ -10,5 +10,5 @@
     <string name="TextPlain">Name</string>
     <string name="RatingBar" translatable="false">RatingBar</string>
     <string name="ImageButtonText">ImageButton and Button with an image</string>
-
+    <string name="geneRadioBtn" translatable="false">RadioButton</string>
 </resources>

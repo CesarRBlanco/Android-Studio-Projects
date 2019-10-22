@@ -16,36 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txtButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/geneButton"
-        app:layout_constraintBottom_toBottomOf="@+id/button1"
-        app:layout_constraintStart_toEndOf="@+id/button1"
-        app:layout_constraintTop_toTopOf="@+id/button1" />
-
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/dividerColor"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/button1"
-        app:layout_constraintTop_toBottomOf="@+id/button1" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:contentDescription="@string/geneButton"
-        app:layout_constraintStart_toStartOf="@+id/button1"
-        app:layout_constraintTop_toBottomOf="@+id/button1"
-        app:srcCompat="@android:drawable/ic_menu_save" />
-
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
@@ -56,49 +26,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageButton"
         app:layout_constraintStart_toEndOf="@+id/imageButton"
         app:layout_constraintTop_toTopOf="@+id/imageButton" />
-
-    <TextView
-        android:id="@+id/txtImgBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/ImageButtonText"
-        app:layout_constraintBottom_toBottomOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="@+id/button2" />
-
-    <View
-        android:id="@+id/divider3"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/dividerColor"
-        app:layout_constraintBottom_toTopOf="@+id/toggleButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:checked="true"
-        android:textOff="@string/ButtonOff"
-        android:textOn="@string/ButtonOn"
-        app:layout_constraintStart_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
-
-    <View
-        android:id="@+id/divider4"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/dividerColor"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/toggleButton"
-        app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
 
     <CheckBox
         android:id="@+id/checkBox1"
@@ -134,23 +61,103 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
 
-    <View
-        android:id="@+id/divider5"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/dividerColor"
-        app:layout_constraintBottom_toTopOf="@+id/switch1"
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="@string/TextPlain"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/geneButton"
+        app:layout_constraintStart_toStartOf="@+id/button1"
+        app:layout_constraintTop_toBottomOf="@+id/button1"
+        app:srcCompat="@android:drawable/ic_menu_save" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox3"
+        tools:visibility="visible">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/geneRadioBtn" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/geneRadioBtn" />
+    </RadioGroup>
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="@+id/checkBox1"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/txtSeekBarNumber"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txtSeekBar"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <Switch
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+
+    <TextView
+        android:id="@+id/txtButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/geneButton"
+        app:layout_constraintBottom_toBottomOf="@+id/button1"
+        app:layout_constraintStart_toEndOf="@+id/button1"
+        app:layout_constraintTop_toTopOf="@+id/button1" />
+
+    <TextView
+        android:id="@+id/txtImgBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/ImageButtonText"
+        app:layout_constraintBottom_toBottomOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="@+id/button2" />
 
     <TextView
         android:id="@+id/txtSwitch"
@@ -161,25 +168,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/switch1"
         app:layout_constraintEnd_toStartOf="@+id/switch1"
         app:layout_constraintTop_toTopOf="@+id/switch1" />
-
-    <View
-        android:id="@+id/divider6"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/dividerColor"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar"
-        app:layout_constraintStart_toStartOf="@+id/switch1"
-        app:layout_constraintTop_toBottomOf="@+id/switch1" />
-
-    <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/txtSeekBarNumber"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/txtSeekBar"
-        app:layout_constraintTop_toBottomOf="@+id/switch1" />
 
     <TextView
         android:id="@+id/txtSeekBar"
@@ -202,23 +190,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/seekBar" />
 
-    <View
-        android:id="@+id/divider7"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/dividerColor"
-        app:layout_constraintBottom_toTopOf="@+id/ratingBar"
-        app:layout_constraintStart_toEndOf="@+id/txtSeekBar"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
-
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/checkBox1"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
-
     <TextView
         android:id="@+id/txtRatingBar"
         android:layout_width="wrap_content"
@@ -229,29 +200,6 @@
         app:layout_constraintStart_toEndOf="@+id/ratingBar"
         app:layout_constraintTop_toTopOf="@+id/ratingBar" />
 
-    <View
-        android:id="@+id/divider8"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/dividerColor"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBar"
-        tools:layout_editor_absoluteX="4dp" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="@string/TextPlain"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -261,5 +209,81 @@
         app:layout_constraintBottom_toBottomOf="@+id/toggleButton"
         app:layout_constraintStart_toEndOf="@+id/toggleButton"
         app:layout_constraintTop_toTopOf="@+id/toggleButton" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:checked="true"
+        android:textOff="@string/ButtonOff"
+        android:textOn="@string/ButtonOn"
+        app:layout_constraintStart_toStartOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/dividerColor"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/button1"
+        app:layout_constraintTop_toBottomOf="@+id/button1" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/dividerColor"
+        app:layout_constraintBottom_toTopOf="@+id/toggleButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/dividerColor"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/toggleButton"
+        app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/dividerColor"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintStart_toStartOf="@+id/checkBox1"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+
+    <View
+        android:id="@+id/divider6"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/dividerColor"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <View
+        android:id="@+id/divider7"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/dividerColor"
+        app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+        app:layout_constraintStart_toEndOf="@+id/txtSeekBar" />
+
+    <View
+        android:id="@+id/divider8"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/dividerColor"
+        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+        tools:layout_editor_absoluteX="4dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
