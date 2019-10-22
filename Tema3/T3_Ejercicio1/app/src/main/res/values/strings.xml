@@ -4,5 +4,7 @@
     <string name="EditTextName">Name</string>
     <string name="EditTextAge">Age</string>
     <string name="GeneButtonBack">Back</string>
+    <string name="BtnThirdActivity">Third Activity</string>
+    <string name="BtnCall">Call</string>
 </resources>
 

@@ -10,11 +10,13 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 public class Secundaria extends AppCompatActivity {
+    RatingBar ratingBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-    final RatingBar ratingBar=(RatingBar)findViewById(R.id.ratingBar);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secundaria);
+        ratingBar=(RatingBar)findViewById(R.id.ratingBar);
         Intent ite=getIntent();
         final TextView nombre=findViewById(R.id.textViewMensaje);
         nombre.setText(("Hello "+ite.getStringExtra("NAME")));
