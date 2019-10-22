@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ejercicio4</string>
+    <string name="geneButton">Botón</string>
+    <string name="ButtonOn">Encendido</string>
+    <string name="ButtonOff">Apagado</string>
+    <string name="geneCheckBox">CheckBox</string>
+    <string name="TextPlain">Nombre</string>
+    <string name="ImageButtonText">ImageButton y Button con una imagen</string>
+
+
+</resources>

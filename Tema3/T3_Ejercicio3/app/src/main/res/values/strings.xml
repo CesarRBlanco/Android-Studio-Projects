@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Ejercicio4</string>
+    <string name="geneButton">Button</string>
+    <string name="ButtonOn">On</string>
+    <string name="ButtonOff">Off</string>
+    <string name="toggleButton" translatable="false">ToggleButton</string>
+    <string name="geneCheckBox">CheckBox</string>
+    <string name="seekBar" translatable="false">SeekBar</string>
+    <string name="seekBarNumber" translatable="false">0</string>
+    <string name="TextPlain">Name</string>
+    <string name="RatingBar" translatable="false">RatingBar</string>
+    <string name="ImageButtonText">ImageButton and Button with an image</string>
+    <string name="geneRadioBtn" translatable="false">RadioButton</string>
+</resources>
