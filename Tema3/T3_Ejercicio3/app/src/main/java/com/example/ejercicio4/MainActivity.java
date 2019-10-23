@@ -43,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
         final ImageButton imgBtn = findViewById(R.id.imageButton);
         final TextView txtImgBtn = findViewById(R.id.txtImgBtn);
         final RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
-
+        final RadioButton rb1 = findViewById(R.id.radioButton);
+        final RadioButton rb2 = findViewById(R.id.radioButton2);
 
         tgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,14 +116,14 @@ public class MainActivity extends AppCompatActivity {
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
-            @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                RadioButton rb1 = (RadioButton) findViewById(R.id.radioButton);
-                RadioButton rb2 = (RadioButton) findViewById(R.id.radioButton2);
-                if (checkedId == R.id.radioButton) {
-                    Toast.makeText(MainActivity.this, "arb1", Toast.LENGTH_SHORT);
-                } else {
-                    Toast.makeText(MainActivity.this, "rb2", Toast.LENGTH_SHORT);
+                switch (checkedId) {
+                    case R.id.radioButton:
+                        Toast.makeText(MainActivity.this, "RadioButton1", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.radioButton2:
+                        Toast.makeText(MainActivity.this, "RadioButton2", Toast.LENGTH_SHORT).show();
+                        break;
                 }
             }
         });
