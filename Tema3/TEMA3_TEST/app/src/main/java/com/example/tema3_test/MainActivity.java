@@ -2,6 +2,8 @@ package com.example.tema3_test;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,61 +26,32 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<String> datos;
-    ListView lv;
-    ArrayAdapter<String> adaptador;
+    ArrayList<SistemaOperativo> sistemas;
+    RecyclerView rv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        datos = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            datos.add(i + "file");
+        sistemas = new ArrayList<SistemaOperativo>();
+        for (int i = 1; i <= 9; i++) {
+            sistemas.add(new SistemaOperativo(i + " Ubuntu 14.04", "2014", R.drawable.tux));
+            sistemas.add(new SistemaOperativo(i + " MacOS X Tiger", "2004", R.drawable.apple));
+            sistemas.add(new SistemaOperativo(i + " Windows 95", "1995", R.drawable.windows));
+            sistemas.add(new SistemaOperativo(i + " Debian", "1993", R.drawable.tux));
+            sistemas.add(new SistemaOperativo(i + " Linux Mint 15", "2013", R.drawable.tux));
+            sistemas.add(new SistemaOperativo(i + " Windows 10", "2016", R.drawable.windows));
+            sistemas.add(new SistemaOperativo(i + " Android", "2006", R.drawable.android));
+            sistemas.add(new SistemaOperativo(i + " iOS 8", "2014", R.drawable.apple));
+            sistemas.add(new SistemaOperativo(i + " Windows XP", "2001", R.drawable.windows));
+            sistemas.add(new SistemaOperativo(i + " Elementary OS", "2014", R.drawable.tux));
+            sistemas.add(new SistemaOperativo(i + " MacOS 9", "1999", R.drawable.apple));
+            sistemas.add(new SistemaOperativo(i + " Ubuntu 14.04", "2014", R.drawable.tux));
         }
-
-        lv = findViewById(R.id.lstView);
-        adaptador = new ArrayAdapter<>(this, android.R.layout.select_dialog_multichoice, datos);
-        lv.setAdapter(adaptador);
-        lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
+        rv = findViewById(R.id.recicleiew);
+        LinearLayoutManager ly = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        rv.setLayoutManager(ly);
+        Adaptador adaptador = new Adaptador(sistemas);
+        rv.setAdapter(adaptador);
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu_main,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item){
-        switch
-        (item.getItemId()){
-            case R.id.add:
-                Toast.makeText(this, "Add", Toast.LENGTH_SHORT).show();
-        datos.add(0,"nuevo");
-        adaptador.notifyDataSetChanged();
-        return true;
-            case R.id.del:
-
-                for (int i=lv.getCount()-1;i>=0;i--){
-                    if(lv.isItemChecked(i)){
-                        datos.remove(i);
-                    }
-                }
-                lv.getCheckedItemPositions().clear();
-                adaptador.notifyDataSetChanged();
-
-
-
-        return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 }
