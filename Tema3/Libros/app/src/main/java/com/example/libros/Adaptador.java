@@ -14,11 +14,39 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class Adaptador extends RecyclerView.Adapter<Adaptador.Elemento> {
+public class Adaptador extends RecyclerView.Adapter<Adaptador.Elemento> implements View.OnClickListener {
     ArrayList<Libros> libros;
+    View.OnClickListener listener;
+    int posPulasdo = -1;
+    RecyclerView rv;
 
-    public Adaptador(ArrayList<Libros> libros) {
+
+    public void setListener(View.OnClickListener listener) {
+        this.listener = listener;
+    }
+
+    public Adaptador(ArrayList<Libros> libros, RecyclerView rv) {
+        this.rv = rv;
         this.libros = libros;
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        if (listener != null) {
+            listener.onClick(v);
+        }
+        int aux = this.posPulasdo;
+        this.posPulasdo = rv.getChildAdapterPosition(v);
+        if(aux==this.posPulasdo){
+            posPulasdo=-1;
+            notifyItemChanged(aux);
+        }else{
+
+        notifyItemChanged(this.posPulasdo);
+        if (aux > -1) notifyItemChanged(aux);
+
+        }
     }
 
     public static class Elemento extends RecyclerView.ViewHolder {
@@ -41,6 +69,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.Elemento> {
     @Override
     public Elemento onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View celda = LayoutInflater.from(parent.getContext()).inflate(R.layout.posicion, parent, false);
+        celda.setOnClickListener(this);
         Elemento ele = new Elemento(celda);
         return ele;
     }
@@ -53,6 +82,9 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.Elemento> {
         holder.paginas.setText(String.valueOf(l.getNumPaginas()));
         holder.valoracion.setRating(l.getValoracion());
         holder.portada.setImageResource(l.getPortada());
+        if (position == this.posPulasdo)
+            holder.itemView.findViewById(R.id.txtNombre).setBackgroundResource(R.color.pulsado);
+        else holder.itemView.findViewById(R.id.txtNombre).setBackgroundResource(R.color.nopulsado);
     }
 
     @Override

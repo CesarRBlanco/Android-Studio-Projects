@@ -26,7 +26,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="#BFFFFFFF"
         android:isIndicator="true"
         android:stepSize="0.5"
         app:layout_constraintStart_toStartOf="@+id/txtPaginas"
@@ -37,7 +36,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:background="#BFFFFFFF"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/txtNombre"
         app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
@@ -47,7 +45,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:background="#BFFFFFFF"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/txtAutor"
         app:layout_constraintTop_toBottomOf="@+id/txtAutor" />

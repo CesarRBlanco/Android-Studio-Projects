@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Tercera"></activity>
+        <activity android:name=".CambioFecha"></activity>
+        <activity android:name=".CambioHora" />
+        <activity android:name=".Tercera" />
         <activity android:name=".Secundaria" />
         <activity android:name=".MainActivity">
             <intent-filter>
