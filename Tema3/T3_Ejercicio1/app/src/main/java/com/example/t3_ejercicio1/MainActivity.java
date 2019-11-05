@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         Button btnSend = findViewById(R.id.button);
         Button btnFecha = findViewById(R.id.button4);
         Button btnHora = findViewById(R.id.button5);
-      final  String txtFech=findViewById(R.id.txtFecha);
 
 
         btnSend.setOnClickListener(new View.OnClickListener() {
@@ -70,27 +69,35 @@ public class MainActivity extends AppCompatActivity {
 
         String todayFeels = "Hoy te sientes ";
         final TextView txt = findViewById(R.id.txtView);
+        final TextView txtFech = findViewById(R.id.txtFecha);
+        Bundle datosI = getIntent().getExtras();
+
+
         if (requestCode == MIREQUESTCODE && resultCode == RESULT_OK) {
-            switch ((int) data.getFloatExtra("ESTADO", 0f)) {
-                case 0:
-                    txt.setText(todayFeels + "por los suelos");
-                    break;
-                case 1:
-                    txt.setText(todayFeels + "de bajón");
-                    break;
-                case 2:
-                    txt.setText(todayFeels + "triste");
-                    break;
-                case 3:
-                    txt.setText(todayFeels + "normal");
-                    break;
-                case 4:
-                    txt.setText(todayFeels + "contento");
-                    break;
-                case 5:
-                    txt.setText(todayFeels + "feliz");
-                    break;
-            }
+
+            txtFech.setText(datosI.getInt("y"));
+
+
+//            switch ((int) data.getFloatExtra("ESTADO", 0f)) {
+//                case 0:
+//                    txt.setText(todayFeels + "por los suelos");
+//                    break;
+//                case 1:
+//                    txt.setText(todayFeels + "de bajón");
+//                    break;
+//                case 2:
+//                    txt.setText(todayFeels + "triste");
+//                    break;
+//                case 3:
+//                    txt.setText(todayFeels + "normal");
+//                    break;
+//                case 4:
+//                    txt.setText(todayFeels + "contento");
+//                    break;
+//                case 5:
+//                    txt.setText(todayFeels + "feliz");
+//                    break;
+//            }
         }
 
     }
