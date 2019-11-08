@@ -1,10 +1,13 @@
 package com.example.t3_ejercicio1;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -115,4 +118,25 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.border,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+
+            case R.id.nuevo:
+                Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+            case R.id.borrar:
+                Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+            case R.id.editar:
+                Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
 }
