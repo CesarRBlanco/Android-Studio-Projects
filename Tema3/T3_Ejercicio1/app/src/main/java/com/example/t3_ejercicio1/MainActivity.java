@@ -9,14 +9,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     int MIREQUESTCODE = 1;
+    int MIREQUESTCODEF = 2;
+    int MIREQUESTCODEH = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         final EditText editName = findViewById(R.id.editText);
         Button btnThird = findViewById(R.id.button2);
@@ -47,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final Intent intetFecha = new Intent(MainActivity.this, CambioFecha.class);
-                startActivityForResult(intetFecha, MIREQUESTCODE);
+                startActivityForResult(intetFecha, MIREQUESTCODEF);
 
             }
         });
@@ -56,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final Intent intetHora = new Intent(MainActivity.this, CambioHora.class);
-                startActivityForResult(intetHora, MIREQUESTCODE);
+                startActivityForResult(intetHora, MIREQUESTCODEH);
 
             }
         });
@@ -70,34 +74,43 @@ public class MainActivity extends AppCompatActivity {
         String todayFeels = "Hoy te sientes ";
         final TextView txt = findViewById(R.id.txtView);
         final TextView txtFech = findViewById(R.id.txtFecha);
-        Bundle datosI = getIntent().getExtras();
+        final TextView txtHora = findViewById(R.id.txtHora);
 
+        if (requestCode == MIREQUESTCODEF && resultCode == RESULT_OK) {
+            int año = data.getIntExtra("YEAR", 0);
+            int mes = data.getIntExtra("MONTH", 0);
+            int dia = data.getIntExtra("DAY", 0);
+        txtFech.setText(String.format("%d/%d/%d",dia,mes,año));
+        }
+
+        if (requestCode == MIREQUESTCODEH && resultCode == RESULT_OK) {
+            int hora=data.getIntExtra("HORA",0);
+        int minuto=data.getIntExtra("MINUTO",0);
+        txtHora.setText(String.format("%d : %d",hora,minuto));
+        }
 
         if (requestCode == MIREQUESTCODE && resultCode == RESULT_OK) {
 
-            txtFech.setText(datosI.getInt("y"));
-
-
-//            switch ((int) data.getFloatExtra("ESTADO", 0f)) {
-//                case 0:
-//                    txt.setText(todayFeels + "por los suelos");
-//                    break;
-//                case 1:
-//                    txt.setText(todayFeels + "de bajón");
-//                    break;
-//                case 2:
-//                    txt.setText(todayFeels + "triste");
-//                    break;
-//                case 3:
-//                    txt.setText(todayFeels + "normal");
-//                    break;
-//                case 4:
-//                    txt.setText(todayFeels + "contento");
-//                    break;
-//                case 5:
-//                    txt.setText(todayFeels + "feliz");
-//                    break;
-//            }
+            switch ((int) data.getFloatExtra("ESTADO", 0f)) {
+                case 0:
+                    txt.setText(todayFeels + "por los suelos");
+                    break;
+                case 1:
+                    txt.setText(todayFeels + "de bajón");
+                    break;
+                case 2:
+                    txt.setText(todayFeels + "triste");
+                    break;
+                case 3:
+                    txt.setText(todayFeels + "normal");
+                    break;
+                case 4:
+                    txt.setText(todayFeels + "contento");
+                    break;
+                case 5:
+                    txt.setText(todayFeels + "feliz");
+                    break;
+            }
         }
 
     }
