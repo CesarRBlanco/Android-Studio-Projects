@@ -128,7 +128,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
 
-            case R.id.nuevo:
+            case R.id.nuevo2:
+                Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+            case R.id.nuevo3:
                 Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
             case R.id.borrar:
                 Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
