@@ -38,13 +38,13 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.Elemento> implemen
         }
         int aux = this.posPulasdo;
         this.posPulasdo = rv.getChildAdapterPosition(v);
-        if(aux==this.posPulasdo){
-            posPulasdo=-1;
+        if (aux == this.posPulasdo) {
+            posPulasdo = -1;
             notifyItemChanged(aux);
-        }else{
+        } else {
 
-        notifyItemChanged(this.posPulasdo);
-        if (aux > -1) notifyItemChanged(aux);
+            notifyItemChanged(this.posPulasdo);
+            if (aux > -1) notifyItemChanged(aux);
 
         }
     }
