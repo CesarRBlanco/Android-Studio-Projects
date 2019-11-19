@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,7 +31,9 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.Elemento> implemen
 
     @Override
     public void onClick(View v) {
-
+        if (listener != null) {
+            listener.onClick(v);
+        }
     }
 
     @Override
@@ -44,12 +47,12 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.Elemento> implemen
 
         public Elemento(@NonNull View itemView) {
             super(itemView);
+
             this.titulo = itemView.findViewById(R.id.txtTitulo);
+
             this.director = itemView.findViewById(R.id.txtDirector);
-            this.año = itemView.findViewById(R.id.txtAño);
             this.portada = itemView.findViewById(R.id.imgPortada);
             this.rateEdad = itemView.findViewById(R.id.imgRate);
-
         }
     }
 
@@ -65,9 +68,19 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.Elemento> implemen
     @Override
     public void onBindViewHolder(@NonNull Elemento holder, int position) {
         Pelicula p = pelis.get(position);
-        holder.titulo.setText(p.getTitulo());
+
+        String tituloL=p.getTitulo();
+        String tituloS;
+        if(tituloL.length()>=12){
+
+        tituloS=tituloL.substring(0,10);
+        tituloS=tituloS+"...";
+        }else{
+            tituloS=tituloL;
+        }
+        holder.titulo.setText(tituloS);
+
         holder.director.setText(p.getDirector());
-        holder.año.setText(p.getFecha().toString());
         holder.rateEdad.setImageResource(p.getClasi());
         holder.portada.setImageResource(p.getPortada());
 //        if (position == this.posPulasdo)

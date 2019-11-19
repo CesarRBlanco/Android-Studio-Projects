@@ -23,8 +23,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+String cadena="Hola mundo";
+String subCadena=cadena.substring(0,4);
 
-
+TextView prueba=findViewById(R.id.txtPrueba);
+prueba.setText(subCadena);
         final EditText editName = findViewById(R.id.editText);
         Button btnThird = findViewById(R.id.button2);
         Button btnSend = findViewById(R.id.button);

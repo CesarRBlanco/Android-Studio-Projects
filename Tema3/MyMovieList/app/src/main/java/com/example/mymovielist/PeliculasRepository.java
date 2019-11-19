@@ -22,6 +22,11 @@ public class PeliculasRepository {
     private void startActivity(Intent appIntent) {
     }
 
+public ArrayList<Pelicula> selecMovie(ArrayList peliculas,int pos){
+    ArrayList<Pelicula> selectedPeli= new ArrayList<Pelicula>();
+    selectedPeli.add((Pelicula) peliculas.get(pos));
+    return selectedPeli;
+}
 
     public ArrayList<Pelicula> rellenaPeliculas() {
 
@@ -29,7 +34,7 @@ public class PeliculasRepository {
 
         Calendar cal = Calendar.getInstance();
         cal.set(1982, 12, 3);
-        Pelicula dune = new Pelicula("Dune", "Lynch", 180, cal.getTime(), "Gran vía", R.drawable.g, R.drawable.dune);
+        Pelicula dune = new Pelicula("Dune", "David Lynch", 180, cal.getTime(), "Gran vía", R.drawable.g, R.drawable.dune);
         dune.setSinopsis("Por orden imperial, la familia Atreides deberá hacerse cargo de la explotación del desértico planeta de Arrakis, conocido también como \"Dune\" " +
                 "que es el único planeta donde se encuentra la especia, una potente droga que, además, es necesaria para los vuelos espaciales. Anteriormente, el planeta " +
                 "había sido gobernado por los Harkonen, que habían ejercido su mandato con puño de hierro, dejando una huella indeleble en la población indígena del planeta" +
@@ -40,7 +45,7 @@ public class PeliculasRepository {
         peliculas.add(dune);
 
         cal.set(1972, 3, 5);
-        Pelicula a2001 = new Pelicula("2001", "Kubric", 130, cal.getTime(), "Plaza elíptica", R.drawable.pg, R.drawable.d2001);
+        Pelicula a2001 = new Pelicula("2001", "Stanley Kubric", 130, cal.getTime(), "Plaza elíptica", R.drawable.pg, R.drawable.d2001);
         a2001.setSinopsis("La secuencia inicial del filme se inicia con la imagen de la Tierra ascendiendo sobre la Luna, mientras que el Sol asciende a su vez sobre la " +
                 "Tierra, todos en alineación. En este momento comienza a escucharse la composición musical Así habló Zaratustra de Richard Strauss, la misma que acompaña, " +
                 "en su mayoría, la primera parte de la película titulada El Amanecer del Hombre.\n" +
@@ -66,7 +71,7 @@ public class PeliculasRepository {
         peliculas.add(a2001);
 
         cal.set(1984, 11, 2);
-        Pelicula akira = new Pelicula("Akira", "Otomo", 170, cal.getTime(), "Gran vía", R.drawable.pg13, R.drawable.akira);
+        Pelicula akira = new Pelicula("Akira", "Katsuhiro Otomo", 170, cal.getTime(), "Gran vía", R.drawable.pg13, R.drawable.akira);
         akira.setSinopsis("Neo-Tokyo, 2019. Shotaro Kaneda sale junto con su pandilla de motociclistas (\"Los Cápsulas\") a pelear contra un pandilla rival conocida como Los" +
                 " Payasos. Sin embargo, el mejor amigo de Kaneda Tetsuo Shima sufre un accidente cuando choca su motocicleta contra Takashi, un niño esper que fue liberado " +
                 "un laboratorio secreto del gobierno por una organización revolucionaria clandestina disidente. Takashi es capturado por soldados armados, Tetsuo es " +
@@ -84,7 +89,7 @@ public class PeliculasRepository {
         peliculas.add(akira);
 
         cal.set(1995, 1, 2);
-        Pelicula ia = new Pelicula("IA", "Spielberg", 140, cal.getTime(), "Travesia", R.drawable.r, R.drawable.ia);
+        Pelicula ia = new Pelicula("IA", "Steven Spielberg", 140, cal.getTime(), "Travesia", R.drawable.r, R.drawable.ia);
         ia.setSinopsis("A mediados del siglo XXI, el calentamiento global provocó que las capas de hielo de los polos se derritieran, inundaran las costas y se redujera " +
                 "drásticamente los recursos del mundo. Hay una nueva clase de robots llamados Mecas, humanoides avanzados capaces de emular pensamientos y emociones. " +
                 "Los humanos necesitan gracias a la falta de recursos permisos de natalidad, que eran muy difíciles de adquirir. Por esto crean a David (Haley Joel Osment), " +
@@ -98,7 +103,7 @@ public class PeliculasRepository {
         peliculas.add(ia);
 
         cal.set(1999, 6, 23);
-        Pelicula matrix = new Pelicula("Matrix", "Lana Wachowski, Lilly Wachowski", 136, cal.getTime(), "Gran vía", R.drawable.pg13, R.drawable.matrix);
+        Pelicula matrix = new Pelicula("Matrix", "Lana Wachowski\nLilly Wachowski", 136, cal.getTime(), "Gran vía", R.drawable.pg13, R.drawable.matrix);
         matrix.setSinopsis("La película plantea que en el futuro, casi todos los seres humanos han sido esclavizados, tras una dura guerra, por las máquinas y las " +
                 "inteligencias artificiales creadas. Estas los tienen en suspensión, y con sus mentes conectadas a una simulación social que representa el final del siglo " +
                 "XX, Matrix. Los seres humanos son usados por las máquinas para obtener energía, y los pocos humanos descendientes de los que no cayeron en las redes de los" +
@@ -264,7 +269,7 @@ public class PeliculasRepository {
         peliculas.add(st);
 
         cal.set(2015, 9, 24);
-        Pelicula martian = new Pelicula("The Martian", "Ridley Scotts", 151, cal.getTime(), "Gran vía", R.drawable.pg13, R.drawable.martian);
+        Pelicula martian = new Pelicula("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "Ridley Scott", 151, cal.getTime(), "Gran vía", R.drawable.pg13, R.drawable.martian);
         martian.setSinopsis("Durante una misión a Marte de la nave tripulada Ares III, una fuerte tormenta se desata, por lo que, tras haber dado por desaparecido y muerto" +
                 " al astronauta Mark Watney (Matt Damon), sus compañeros toman la decisión de irse; sin embargo, ha sobrevivido, pero está solo y sin apenas recursos en el" +
                 " planeta. Con muy pocos medios, deberá recurrir a sus conocimientos, su sentido del humor y un gran instinto de supervivencia para lograr sobrevivir y comunicar " +
