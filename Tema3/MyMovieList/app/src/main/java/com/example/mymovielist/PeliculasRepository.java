@@ -165,7 +165,9 @@ public class PeliculasRepository {
 
         cal.set(1995, 1, 2);
         Pelicula inte = new Pelicula("Interstellar", "Christopher Nolan ", 169, cal.getTime(), "Travesia", R.drawable.g, R.drawable.interstellar);
-        inte.setSinopsis("Al ver que la vida en la Tierra está llegando a su fin, un grupo de exploradores dirigidos por el piloto Cooper (McConaughey) y la científica Amelia (Hathaway) emprenden una misión que puede ser la más importante de la historia de la humanidad, Viajan más allá de nuestra galaxia para descubrir otra que pueda garantizar el futuro de la raza humana.");
+        inte.setSinopsis("Al ver que la vida en la Tierra está llegando a su fin, un grupo de exploradores dirigidos por el piloto Cooper (McConaughey) y la científica Amelia " +
+                "(Hathaway) emprenden una misión que puede ser la más importante de la historia de la humanidad, Viajan más allá de nuestra galaxia para descubrir otra que " +
+                "pueda garantizar el futuro de la raza humana.");
         inte.setIdYoutube("UoSSbmD9vqc");
         peliculas.add(inte);
 
@@ -263,7 +265,10 @@ public class PeliculasRepository {
 
         cal.set(2015, 9, 24);
         Pelicula martian = new Pelicula("The Martian", "Ridley Scotts", 151, cal.getTime(), "Gran vía", R.drawable.pg13, R.drawable.martian);
-        martian.setSinopsis("Durante una misión a Marte de la nave tripulada Ares III, una fuerte tormenta se desata, por lo que, tras haber dado por desaparecido y muerto al astronauta Mark Watney (Matt Damon), sus compañeros toman la decisión de irse; sin embargo, ha sobrevivido, pero está solo y sin apenas recursos en el planeta. Con muy pocos medios, deberá recurrir a sus conocimientos, su sentido del humor y un gran instinto de supervivencia para lograr sobrevivir y comunicar a la Tierra que todavía está vivo, esperando que acudan en su rescate.");
+        martian.setSinopsis("Durante una misión a Marte de la nave tripulada Ares III, una fuerte tormenta se desata, por lo que, tras haber dado por desaparecido y muerto" +
+                " al astronauta Mark Watney (Matt Damon), sus compañeros toman la decisión de irse; sin embargo, ha sobrevivido, pero está solo y sin apenas recursos en el" +
+                " planeta. Con muy pocos medios, deberá recurrir a sus conocimientos, su sentido del humor y un gran instinto de supervivencia para lograr sobrevivir y comunicar " +
+                "a la Tierra que todavía está vivo, esperando que acudan en su rescate.");
         martian.setIdYoutube("OS23SmNlE3Y");
         peliculas.add(martian);
         return peliculas;
