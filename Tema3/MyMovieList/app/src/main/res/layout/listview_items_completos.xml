@@ -78,6 +78,8 @@
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:scaleType="fitXY"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
             app:layout_constraintBottom_toBottomOf="@+id/imgPortadaCompleto"
             app:layout_constraintEnd_toEndOf="@+id/imgPortadaCompleto"
             app:srcCompat="@drawable/g" />
