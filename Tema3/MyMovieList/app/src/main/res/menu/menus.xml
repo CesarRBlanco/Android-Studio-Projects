@@ -2,17 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:icon="@android:drawable/ic_dialog_dialer"
-        android:title="Nuevo"
+        android:id="@+id/fullList"
+        android:icon="@drawable/movie"
+        android:title="fullList"
         app:showAsAction="always" />
     <item
-        android:id="@+id/borrar"
+        android:id="@+id/favs"
         android:icon="@drawable/like"
-        android:title="Borrar"
-        app:showAsAction="ifRoom" />
+        android:title="favs"
+        app:showAsAction="always" />
     <item
-        android:id="@+id/editar"
-        android:icon="@drawable/pencil"
-        android:title="Editar"
+        android:id="@+id/add"
+        android:icon="@drawable/plus"
+        android:title="add"
         app:showAsAction="always" />
 </menu>

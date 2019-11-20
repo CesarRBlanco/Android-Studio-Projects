@@ -22,11 +22,11 @@ public class PeliculasRepository {
     private void startActivity(Intent appIntent) {
     }
 
-public ArrayList<Pelicula> selecMovie(ArrayList peliculas,int pos){
-    ArrayList<Pelicula> selectedPeli= new ArrayList<Pelicula>();
-    selectedPeli.add((Pelicula) peliculas.get(pos));
-    return selectedPeli;
-}
+    public ArrayList<Pelicula> selecMovie(ArrayList peliculas, int pos) {
+        ArrayList<Pelicula> selectedPeli = new ArrayList<Pelicula>();
+        selectedPeli.add((Pelicula) peliculas.get(pos));
+        return selectedPeli;
+    }
 
     public ArrayList<Pelicula> rellenaPeliculas() {
 

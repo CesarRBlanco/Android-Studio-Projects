@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,12 +45,11 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.Elemento> implemen
     public static class Elemento extends RecyclerView.ViewHolder {
         TextView titulo, director, año;
         ImageView portada, rateEdad;
+        RadioButton favorita;
 
         public Elemento(@NonNull View itemView) {
             super(itemView);
-
             this.titulo = itemView.findViewById(R.id.txtTitulo);
-
             this.director = itemView.findViewById(R.id.txtDirector);
             this.portada = itemView.findViewById(R.id.imgPortada);
             this.rateEdad = itemView.findViewById(R.id.imgRate);
@@ -71,9 +71,9 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.Elemento> implemen
 
         String tituloL=p.getTitulo();
         String tituloS;
-        if(tituloL.length()>=12){
+        if(tituloL.length()>12){
 
-        tituloS=tituloL.substring(0,10);
+        tituloS=tituloL.substring(0,12);
         tituloS=tituloS+"...";
         }else{
             tituloS=tituloL;
@@ -83,9 +83,6 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.Elemento> implemen
         holder.director.setText(p.getDirector());
         holder.rateEdad.setImageResource(p.getClasi());
         holder.portada.setImageResource(p.getPortada());
-//        if (position == this.posPulasdo)
-//            holder.itemView.findViewById(R.id.txtNombre).setBackgroundResource(R.color.pulsado);
-//        else holder.itemView.findViewById(R.id.txtNombre).setBackgroundResource(R.color.nopulsado);
     }
 
 }

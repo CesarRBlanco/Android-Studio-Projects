@@ -14,6 +14,7 @@ public class Pelicula implements Serializable {
 
     private SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
 
+
     public Pelicula(String titulo, String director, int duracion, Date fecha, String sala, int clasi, int portada) {
         this.clasi = clasi;
         this.director = director;
@@ -23,6 +24,11 @@ public class Pelicula implements Serializable {
         this.titulo = titulo;
         this.duracion = duracion;
         this.favorita = false;
+    }
+
+
+    public String getFechaFormat() {
+        return dateformat.format(this.fecha);
     }
 
     public String getIdYoutube() {
@@ -103,5 +109,13 @@ public class Pelicula implements Serializable {
 
     public void setDuracion(int duracion) {
         this.duracion = duracion;
+    }
+
+    public String getDuracionFormat() {
+        String duracionFormateada;
+        int hours = duracion / 60;
+        int minutes = duracion % 60;
+        duracionFormateada = String.format("%d:%02d", hours, minutes);
+        return duracionFormateada;
     }
 }
