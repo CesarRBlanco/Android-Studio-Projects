@@ -269,7 +269,7 @@ public class PeliculasRepository {
         peliculas.add(st);
 
         cal.set(2015, 9, 24);
-        Pelicula martian = new Pelicula("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "Ridley Scott", 151, cal.getTime(), "Gran vía", R.drawable.pg13, R.drawable.martian);
+        Pelicula martian = new Pelicula("The Martian", "Ridley Scott", 151, cal.getTime(), "Gran vía", R.drawable.pg13, R.drawable.martian);
         martian.setSinopsis("Durante una misión a Marte de la nave tripulada Ares III, una fuerte tormenta se desata, por lo que, tras haber dado por desaparecido y muerto" +
                 " al astronauta Mark Watney (Matt Damon), sus compañeros toman la decisión de irse; sin embargo, ha sobrevivido, pero está solo y sin apenas recursos en el" +
                 " planeta. Con muy pocos medios, deberá recurrir a sus conocimientos, su sentido del humor y un gran instinto de supervivencia para lograr sobrevivir y comunicar " +
