@@ -23,43 +23,38 @@ public class AdaptadorFavoritos extends BaseAdapter {
         return pelisFav.size();
     }
 
-    // Devuelve el elemento asociado con la posición en el ListView
     @Override
     public Object getItem(int position) {
         return pelisFav.get(position);
     }
 
-    // A partir de la posición en la ListView da la posición en el arraylist
     @Override
     public long getItemId(int position) {
         return position;
     }
 
-    // Sobrescribimos el método getView() de nuestro Adapter para utilizar el Contenedor
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        Contenedor contenedor = null; // Aquí se gestionan las filas
-        /* Si la vista ya existe en pantalla no se crea otra si no que se reutiliza la que hay.
-         * Así si es null significa que hay que crearla, si no es null, se coge una existente */
+        Contenedor contenedor = null;
         if (view == null) {
-// "Inflamos" la vista
             view = inflador.inflate(R.layout.listview_items_favoritos, null);
-            // Creamos el contenedor e instanciamos los recursos
             contenedor = new Contenedor();
             contenedor.txtTituloFav = view.findViewById(R.id.txtTituloFav);
             contenedor.chkFavs = view.findViewById(R.id.chkFav);
-// Asignamos el Contenedor a la vista
             view.setTag(contenedor);
-        } else contenedor = (Contenedor) view.getTag(); // obtengo el contenedor
-// Obtenemos el dato a mostrar y lo colocamos en los componentes
+        } else contenedor = (Contenedor) view.getTag();
         Pelicula p = (Pelicula) getItem(position);
         contenedor.txtTituloFav.setText(p.getTitulo());
+        contenedor.chkFavs.setChecked(p.getFavorita());
 
         return view;
     }
 
+    public void changeCheck(int position,boolean state){
+        Pelicula p=(Pelicula) getItem(position);
+        p.setFavorita(state);
+    }
 
-    // Clase para gestionar los componentes de la fila
     class Contenedor {
 
         TextView txtTituloFav;

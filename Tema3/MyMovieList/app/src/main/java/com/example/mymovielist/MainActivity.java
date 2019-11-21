@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.fullList:
                 Intent intentFullList=new Intent(MainActivity.this,ListadoCompleto.class);
                 startActivity(intentFullList);
+
             case R.id.favs:
                 Intent intentFavsList=new Intent(MainActivity.this,ListadoFavoritos.class);
                 startActivity(intentFavsList);
