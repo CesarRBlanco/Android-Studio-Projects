@@ -23,7 +23,8 @@
             android:id="@+id/chkFav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0" />
+            android:layout_weight="0"
+            android:clickable="true" />
     </LinearLayout>
 
 </LinearLayout>

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -64,6 +65,8 @@ public class AdaptadorListado extends RecyclerView.Adapter<AdaptadorListado.Elem
         holder.sala.setText(p.getSala());
         holder.rateEdad.setImageResource(p.getClasi());
         holder.portada.setImageResource(p.getPortada());
+        holder.favorita.setClickable(false);
+        holder.favorita.setChecked(MainActivity.pelis.get(position).getFavorita());
     }
 
     @Override
@@ -74,7 +77,7 @@ public class AdaptadorListado extends RecyclerView.Adapter<AdaptadorListado.Elem
     public class ElementoListado extends RecyclerView.ViewHolder {
         TextView titulo, director, año, duracion, sala;
         ImageView portada, rateEdad;
-        RadioButton favorita;
+        CheckBox favorita;
 
         public ElementoListado(@NonNull View itemView) {
             super(itemView);
@@ -85,7 +88,7 @@ public class AdaptadorListado extends RecyclerView.Adapter<AdaptadorListado.Elem
             this.año = itemView.findViewById(R.id.txtFechaCompleto);
             this.duracion = itemView.findViewById(R.id.txtDuracionCompleto);
             this.sala = itemView.findViewById(R.id.txtSalaCompleto);
-//            this.favorita=itemView.findViewById(R.id.checkBox);
+            this.favorita=itemView.findViewById(R.id.checkBox);
 
 
         }

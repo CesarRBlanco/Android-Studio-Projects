@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
-        <activity android:name=".ListadoFavoritos"></activity>
-        <activity android:name=".PeliculaInfo"></activity>
+        <activity android:name=".NuevaPelicula"></activity>
+        <activity android:name=".ListadoFavoritos" />
+        <activity android:name=".PeliculaInfo" />
         <activity android:name=".ListadoCompleto" />
         <activity android:name=".MainActivity">
             <intent-filter>
