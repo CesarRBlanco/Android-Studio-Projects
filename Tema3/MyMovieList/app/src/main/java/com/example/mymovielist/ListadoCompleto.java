@@ -14,14 +14,13 @@ import java.util.ArrayList;
 public class ListadoCompleto extends AppCompatActivity {
 
 
-    PeliculasRepository peliculasRepository = new PeliculasRepository();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listado_completo);
         final ArrayList<Pelicula> pelisCompletas;
-        pelisCompletas = peliculasRepository.rellenaPeliculas();
+        pelisCompletas = MainActivity.pelis;
         final Intent intentInfo=new Intent(this,PeliculaInfo.class);
         final RecyclerView rvCompleto = findViewById(R.id.rvCompleto);
 

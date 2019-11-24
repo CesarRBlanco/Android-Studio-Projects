@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/añadirPeli"
-        android:icon="@drawable/like"
+        android:icon="@drawable/tick"
         android:title="añadirPeli"
         app:showAsAction="always" />
     <item
         android:id="@+id/cancelarPeli"
-        android:icon="@drawable/plus"
+        android:icon="@drawable/cross"
         android:title="cancelarPeli"
         app:showAsAction="always" />
 </menu>

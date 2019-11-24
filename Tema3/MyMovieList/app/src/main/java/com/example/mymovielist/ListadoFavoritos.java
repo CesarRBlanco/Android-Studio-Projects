@@ -38,6 +38,7 @@ ArrayList<String> titulosFav=new ArrayList<>();
                 for (int i = 0; i < MainActivity.pelis.size(); i++) {
                     MainActivity.pelis.get(i).setFavorita(lvFavs.isItemChecked(i));
                 }
+                finish();
             }
         });
 for (int i=0;i<MainActivity.pelis.size();i++){

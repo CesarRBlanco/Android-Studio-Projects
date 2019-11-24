@@ -10,23 +10,20 @@
         android:id="@+id/editTxtTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/editTxtDirector"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtTituloNuevaPeli" />
+        app:layout_constraintBottom_toBottomOf="@+id/txtTituloNuevaPeli"
+        app:layout_constraintStart_toEndOf="@+id/txtTituloNuevaPeli"
+        app:layout_constraintTop_toTopOf="@+id/txtTituloNuevaPeli" />
 
     <TextView
         android:id="@+id/txtTituloNuevaPeli"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="10dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/editTxtTitulo"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Nombre :"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,120 +31,119 @@
         android:id="@+id/editTxtDirector"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="111dp"
+        android:layout_marginStart="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/txtNuevoDirector"
         app:layout_constraintStart_toEndOf="@+id/txtNuevoDirector"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/txtNuevoDirector" />
 
     <TextView
         android:id="@+id/txtNuevoDirector"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="126dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="128dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner"
-        app:layout_constraintEnd_toStartOf="@+id/editTxtDirector"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="50dp"
+        android:text="Director :"
+        app:layout_constraintStart_toStartOf="@+id/txtTituloNuevaPeli"
+        app:layout_constraintTop_toBottomOf="@+id/txtTituloNuevaPeli" />
 
     <Button
         android:id="@+id/btnNuevaFecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="49dp"
-        android:text="Button"
-        app:layout_constraintEnd_toStartOf="@+id/radioGroup"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        android:layout_marginTop="50dp"
+        android:text="Fecha de estreno"
+        app:layout_constraintStart_toStartOf="@+id/txtSala"
+        app:layout_constraintTop_toBottomOf="@+id/txtSala" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="66dp"
-        app:layout_constraintStart_toStartOf="@+id/spinner"
-        app:layout_constraintTop_toBottomOf="@+id/btnNuevaFecha">
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.17000002">
 
         <RadioButton
             android:id="@+id/radioButton5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:checked="true"
+            android:text="G" />
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="PG" />
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="PG13" />
 
         <RadioButton
             android:id="@+id/radioButton4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="NC17" />
 
         <RadioButton
             android:id="@+id/radioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="R" />
     </RadioGroup>
 
     <EditText
         android:id="@+id/editTxtDuracion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/txtTituloNuevoDuracion"
         app:layout_constraintStart_toEndOf="@+id/txtTituloNuevoDuracion"
-        app:layout_constraintTop_toBottomOf="@+id/editTxtDirector" />
+        app:layout_constraintTop_toTopOf="@+id/txtTituloNuevoDuracion" />
 
     <TextView
         android:id="@+id/txtTituloNuevoDuracion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="41dp"
-        android:layout_marginEnd="14dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/editTxtDuracion"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="50dp"
+        android:text="Duracion :"
+        app:layout_constraintStart_toStartOf="@+id/txtNuevoDirector"
         app:layout_constraintTop_toBottomOf="@+id/txtNuevoDirector" />
 
     <TextView
         android:id="@+id/txtSala"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="62dp"
-        android:layout_marginEnd="1dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/spinner"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spinner" />
+        android:layout_marginTop="50dp"
+        android:text="Sala :"
+        app:layout_constraintStart_toStartOf="@+id/txtTituloNuevoDuracion"
+        app:layout_constraintTop_toBottomOf="@+id/txtTituloNuevoDuracion" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtSala"
         app:layout_constraintStart_toEndOf="@+id/txtSala"
-        app:layout_constraintTop_toBottomOf="@+id/editTxtDuracion" />
+        app:layout_constraintTop_toTopOf="@+id/txtSala" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="PEGI :"
+        app:layout_constraintStart_toStartOf="@+id/btnNuevaFecha"
+        app:layout_constraintTop_toBottomOf="@+id/btnNuevaFecha" />
 </androidx.constraintlayout.widget.ConstraintLayout>

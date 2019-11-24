@@ -67,7 +67,10 @@ public class AdaptadorListado extends RecyclerView.Adapter<AdaptadorListado.Elem
         holder.portada.setImageResource(p.getPortada());
         holder.favorita.setClickable(false);
         holder.favorita.setChecked(MainActivity.pelis.get(position).getFavorita());
+
     }
+
+
 
     @Override
     public int getItemCount() {

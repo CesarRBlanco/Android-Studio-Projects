@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -20,13 +19,11 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
 
-   static ArrayList<Pelicula> pelis = new ArrayList<>();
-    ArrayList<Pelicula> pelis2 = new ArrayList<>();
+    static ArrayList<Pelicula> pelis = new ArrayList<>();
+    ArrayList<Pelicula> peliSelec = new ArrayList<>();
     PeliculasRepository peliculasRepository = new PeliculasRepository();
     RecyclerView rv;
     RecyclerView rvSelec;
-    final ArrayList<String> lista = new ArrayList<String>(); // Fuente de datos
-    ArrayAdapter<String> adapter;
     ConstraintLayout frame;
 
     @Override
@@ -34,15 +31,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         pelis = peliculasRepository.rellenaPeliculas();
-        Button txtM = findViewById(R.id.button);
-
-        final String lastPulse = "d";
-
-        lista.add("Hi");
-
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lista);
-
+        final Button txtM = findViewById(R.id.button);
         rv = findViewById(R.id.rvMain);
+        
 
         final Adaptador adaptador = new Adaptador(pelis, rv);
         GridLayoutManager gy = new GridLayoutManager(this, 1, GridLayoutManager.VERTICAL, false);
@@ -56,39 +47,35 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (getSupportActionBar().isShowing()) {
                     getSupportActionBar().hide();
+                    txtM.setText("Mostrar Barra");
                 } else {
                     getSupportActionBar().show();
+                    txtM.setText("Ocultar Barra");
                 }
             }
         });
 
-        View.OnClickListener pulsador = new View.OnClickListener() {
+        final View.OnClickListener pulsador = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int pos = rv.getChildAdapterPosition(v);
-//                Toast.makeText(MainActivity.this, pelis.get(pos).getTitulo(), Toast.LENGTH_SHORT).show();
                 rvSelec = findViewById(R.id.rvSelec);
 
-                if (lastPulse.equals(pelis.get(pos).getTitulo())) {
-                    Toast.makeText(MainActivity.this, "repe", Toast.LENGTH_SHORT).show();
-                    frame.findViewById(R.id.rvSelec).setVisibility(View.GONE);
-                    frame.findViewById(R.id.divider).setVisibility(View.GONE);
-                    frame.findViewById(R.id.textView).setVisibility(View.VISIBLE);
-                } else {
-                    pelis2 = peliculasRepository.selecMovie(pelis, pos);
-                    Adaptador adaptador1 = new Adaptador(pelis2, rvSelec);
-                    rvSelec.setLayoutManager(gy2);
-                    rvSelec.setAdapter(adaptador1);
-                    frame.findViewById(R.id.textView).setVisibility(View.GONE);
-                }
-                pelis2 = peliculasRepository.selecMovie(pelis, pos);
-//                lastPulse=pelis.get(pos).getTitulo();
+
+                peliSelec = peliculasRepository.selecMovie(pelis, pos);
+
+                AdaptadorSelec adaptador1 = new AdaptadorSelec(peliSelec, rvSelec);
+                rvSelec.setLayoutManager(gy2);
+                rvSelec.setAdapter(adaptador1);
+                frame.findViewById(R.id.textView).setVisibility(View.GONE);
+
             }
         };
 
-
         adaptador.setListener(pulsador);
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -108,8 +95,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentFavsList = new Intent(MainActivity.this, ListadoFavoritos.class);
                 startActivity(intentFavsList);
                 break;
+            case R.id.add:
+                Intent intentAdd = new Intent(MainActivity.this, NuevaPelicula.class);
+                startActivity(intentAdd);
             default:
-break;
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
