@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -68,7 +69,15 @@ public class MainActivity extends AppCompatActivity {
                 rvSelec.setLayoutManager(gy2);
                 rvSelec.setAdapter(adaptador1);
                 frame.findViewById(R.id.textView).setVisibility(View.GONE);
-
+                v.setBackgroundResource(R.color.colorAccent);
+                adaptador.notifyItemChanged(pos);
+                try {
+                    Thread.sleep(400);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                v.setBackgroundColor(Color.parseColor("#80FF0000"));
+                adaptador.notifyItemChanged(pos);
             }
         };
 

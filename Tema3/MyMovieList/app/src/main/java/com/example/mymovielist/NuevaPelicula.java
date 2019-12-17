@@ -28,6 +28,7 @@ public class NuevaPelicula extends AppCompatActivity {
     String titulo;
     String director;
     int duracion;
+
     String sala;
     String[] salas;
     int clasi;

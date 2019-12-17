@@ -82,4 +82,5 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.Elemento> implemen
         holder.portada.setImageResource(p.getPortada());
     }
 
+
 }
