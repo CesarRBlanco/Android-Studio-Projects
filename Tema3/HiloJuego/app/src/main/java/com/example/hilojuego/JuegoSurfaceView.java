@@ -96,7 +96,7 @@ f1=new Fondo(fondo2,0,30,anchoPantalla);
         }
 
 //        c.drawColor(Color.RED);
-//        c.drawText(anchoPantalla + ":" + altoPantalla, 10, 10 + p.getTextSize(), p);
+        c.drawText(anchoPantalla + ":" + altoPantalla, 10, 10 + p.getTextSize(), p);
 //        per.dibuja(c);
 //f1.dibuja(c);
 //    for(Map.Entry<Integer,Point> e:dedos.entrySet()){

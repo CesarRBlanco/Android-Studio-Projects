@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.os.Build;
@@ -26,10 +27,11 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
     GameThread gameThread;
     Paint p;
     Character character;
-    Bitmap  fondo1;
-    HashMap<Integer, Point> dedos=new HashMap<>();
+    Bitmap fondo1,botonR,botonL;
+    HashMap<Integer, Point> dedos = new HashMap<>();
 
-    Background f1,f2;
+    Background f1, f2;
+
     public Game(Context context) {
         super(context);
         this.context = context;
@@ -55,26 +57,31 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
             bitmaps[i] = getBitmapFromAssets("sprite.png");
             bitmaps[i] = escalaAltura(bitmaps[i], altoPantalla / 6);
         }
-        character=new Character(bitmaps, 20,20,anchoPantalla,altoPantalla);
+        character = new Character(bitmaps, 20, 200, anchoPantalla, altoPantalla);
         fondo1 = getBitmapFromAssets("background.png");
         fondo1 = Bitmap.createScaledBitmap(fondo1, anchoPantalla, altoPantalla, false);
-
+        botonL = getBitmapFromAssets("button movement.png");
+        botonL = escalaAltura(botonL, altoPantalla/6);
+        botonR = getBitmapFromAssets("button movement.png");
+        botonR = escalaAltura(botonR, altoPantalla/6);
+        botonR = espejo(botonR, true);
 
     }
 
 
     public void dibujar(Canvas c) {
-
-            c.drawBitmap(fondo1, 0, 0, null);
-character.dibuja(c);
+        c.drawText(anchoPantalla + ":" + altoPantalla, 10, 10 + p.getTextSize(), p);
+        c.drawBitmap(fondo1, 0, 0, null);
+        c.drawBitmap(botonL,20,1000,null);
+       c.drawBitmap(botonR,1000,1000,null);
+        character.dibuja(c);
 
     }
 
     public void actualizaFisica() {
-        if(movement){
-
-        character.mover();
-        character.cambiaFrame();
+        if (movement) {
+            character.mover();
+            character.cambiaFrame();
         }
 
     }
@@ -84,8 +91,8 @@ character.dibuja(c);
     public boolean onTouchEvent(MotionEvent event) {
 
         int accion = event.getActionMasked();
-        int indice=event.getActionIndex();
-        int id=event.getPointerId(indice);
+        int indice = event.getActionIndex();
+        int id = event.getPointerId(indice);
         float x = event.getX(indice);
         float y = event.getY(indice);
 
@@ -93,22 +100,23 @@ character.dibuja(c);
         switch (accion) {
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_POINTER_DOWN:
+                if (x > 1000) {
+                    movement = true;
+                }
 
-    movement=true;
 
-
-            return true;
+                return true;
 
 
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_POINTER_UP:
 
-                movement=false;
+                movement = false;
                 return true;
 
         }
-            return super.onTouchEvent(event);
-  }
+        return super.onTouchEvent(event);
+    }
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
@@ -200,4 +208,14 @@ character.dibuja(c);
         return bitmapAux.createScaledBitmap(bitmapAux, (bitmapAux.getWidth() * nuevoAlto) /
                 bitmapAux.getHeight(), nuevoAlto, true);
     }
+
+    public Bitmap espejo(Bitmap imagen, Boolean horizontal) {
+        Matrix matrix = new Matrix();
+        if (horizontal) matrix.preScale(-1, 1);
+        else matrix.preScale(1, -1);
+        return Bitmap.createBitmap(imagen, 0, 0, imagen.getWidth(),
+                imagen.getHeight(), matrix, false);
+    }
+
+
 }
