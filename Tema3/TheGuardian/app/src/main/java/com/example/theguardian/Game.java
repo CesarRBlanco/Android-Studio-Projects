@@ -20,7 +20,8 @@ import java.io.InputStream;
 import java.util.HashMap;
 
 class Game extends SurfaceView implements SurfaceHolder.Callback {
-    boolean movement = false;
+    boolean movementD = false;
+    boolean movementI = false;
     int anchoPantalla = 0, altoPantalla = 0;
     SurfaceHolder surfaceHolder;
     Context context;
@@ -70,18 +71,28 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
 
 
     public void dibujar(Canvas c) {
-        c.drawText(anchoPantalla + ":" + altoPantalla, 10, 10 + p.getTextSize(), p);
+
         c.drawBitmap(fondo1, 0, 0, null);
-        c.drawBitmap(botonL,20,1000,null);
-       c.drawBitmap(botonR,1000,1000,null);
+        c.drawBitmap(botonL,20,altoPantalla-20-botonL.getHeight(),null);
+       c.drawBitmap(botonR,300,altoPantalla-20-botonR.getHeight(),null);
+        c.drawText(botonR.getHeight() + ":" + botonR.getWidth(), 10, 10 + p.getTextSize(), p);
         character.dibuja(c);
 
     }
 
     public void actualizaFisica() {
-        if (movement) {
-            character.mover();
+        if (movementD) {
+            character.setVelocidad(50);
+            character.moverR();
+
+
+        }
+        if(movementI){
             character.cambiaFrame();
+            character.setVelocidad(50);
+            character.moverL();
+
+
         }
 
     }
@@ -100,8 +111,11 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
         switch (accion) {
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_POINTER_DOWN:
-                if (x > 1000) {
-                    movement = true;
+                if ((x > 300 && x<300+botonR.getWidth())&&(y>1180 && y<1180+botonR.getHeight())) {
+                    movementD = true;
+                }
+                if ((x > 20 && x<20+botonR.getWidth())&&(y>1180 && y<1180+botonR.getHeight())) {
+                    movementI = true;
                 }
 
 
@@ -111,7 +125,8 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_POINTER_UP:
 
-                movement = false;
+                movementD = false;
+                movementI = false;
                 return true;
 
         }

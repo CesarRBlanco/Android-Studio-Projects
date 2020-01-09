@@ -19,7 +19,7 @@ public class Character {
         int tickFrame = 100;
         long tiempoFrame;
 
-        int velocidad = 5;
+        int velocidad = 50;
         int tickVelocidad = 50;
         long tiempoVelocidad;
 
@@ -57,50 +57,62 @@ public class Character {
         }
 
 
-        public void mover(){
+        public void moverR(){
             if (System.currentTimeMillis() - tiempoVelocidad > tickVelocidad) {
+
                 this.x += velocidad;
                 if (this.x+this.frames[frameActual].getWidth() > anchoPantalla) {
                     this.x=anchoPantalla-this.frames[frameActual].getWidth();
-                    this.x = anchoPantalla;
-                    velocidad *= -1 * 1.5f;
-                    frames = framesI;
+                    this.x = anchoPantalla-cuadrado.width();
+                    velocidad = 0;
                 }
                 if(this.y>altoPantalla)this.y=0;
                 if(this.y<0)this.y=altoPantalla;
-                if (this.x < 0) {
-                    this.x = 0;
-                    velocidad *= -1*1.5f;
-                    frames = framesD;
-                }
                 this.tiempoVelocidad = System.currentTimeMillis();
-                if(velocidad>0 && velocidad>200)velocidad=200;
-                if(velocidad<0 && velocidad<-200)velocidad=-200;
                 hitbox();
             }
         }
 
-        public void move() {
-            Log.i("muevo", "muevo");
-            if (System.currentTimeMillis() - tiempoVelocidad > tickVelocidad) {
-                this.x += velocidad;
-                if (this.x+this.frames[frameActual].getWidth() > anchoPantalla) {
-                    this.x=anchoPantalla-this.frames[frameActual].getWidth();
-                    this.x = anchoPantalla;
-                    velocidad *= -1 * 1.5f;
-                    frames = framesI;
-                }
-                if (this.x < 0) {
-                    this.x = 0;
-                    velocidad *= -1*1.5f;
-                    frames = framesD;
-                }
-                this.tiempoVelocidad = System.currentTimeMillis();
-                if(velocidad>0 && velocidad>200)velocidad=200;
-                if(velocidad<0 && velocidad<-200)velocidad=-200;
-                hitbox();
+
+//           if (System.currentTimeMillis() - tiempoVelocidad > tickVelocidad) {
+//        this.x += velocidad;
+//        if (this.x+this.frames[frameActual].getWidth() > anchoPantalla) {
+//            this.x=anchoPantalla-this.frames[frameActual].getWidth();
+//            this.x = anchoPantalla;
+//            velocidad *= -1 * 1.5f;
+//            frames = framesI;
+//        }
+//        if(this.y>altoPantalla)this.y=0;
+//        if(this.y<0)this.y=altoPantalla;
+//        if (this.x < 0) {
+//            this.x = 0;
+//            velocidad *= -1*1.5f;
+//            frames = framesD;
+//        }
+//        this.tiempoVelocidad = System.currentTimeMillis();
+//        if(velocidad>0 && velocidad>200)velocidad=200;
+//        if(velocidad<0 && velocidad<-200)velocidad=-200;
+//        hitbox();
+//    }
+
+    public void moverL(){
+        if (System.currentTimeMillis() - tiempoVelocidad > tickVelocidad) {
+
+            this.x -= velocidad;
+
+            if (this.x < 0) {
+                this.x=anchoPantalla-this.frames[frameActual].getWidth();
+                this.x = 0;
+                frames=framesI;
+                velocidad = 0;
             }
+            frames=framesI;
+            if(this.y>altoPantalla)this.y=0;
+            if(this.y<0)this.y=altoPantalla;
+            this.tiempoVelocidad = System.currentTimeMillis();
+            hitbox();
         }
+    }
 
         public void cambiaFrame() {
             if (System.currentTimeMillis() - tiempoFrame > tickFrame) {
