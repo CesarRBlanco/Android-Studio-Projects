@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             |View.SYSTEM_UI_FLAG_IMMERSIVE
             |View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
     decorView.setSystemUiVisibility(opciones);
-    getWindow()
+    getWindow();
 
     }
 }
