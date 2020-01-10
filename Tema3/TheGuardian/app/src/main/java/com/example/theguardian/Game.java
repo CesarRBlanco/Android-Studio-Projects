@@ -28,7 +28,7 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
     GameThread gameThread;
     Paint p;
     Character character;
-    Bitmap fondo1,botonR,botonL;
+    Bitmap fondo1, botonR, botonL;
     HashMap<Integer, Point> dedos = new HashMap<>();
 
     Background f1, f2;
@@ -62,9 +62,9 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
         fondo1 = getBitmapFromAssets("background.png");
         fondo1 = Bitmap.createScaledBitmap(fondo1, anchoPantalla, altoPantalla, false);
         botonL = getBitmapFromAssets("button movement.png");
-        botonL = escalaAltura(botonL, altoPantalla/6);
+        botonL = escalaAltura(botonL, altoPantalla / 6);
         botonR = getBitmapFromAssets("button movement.png");
-        botonR = escalaAltura(botonR, altoPantalla/6);
+        botonR = escalaAltura(botonR, altoPantalla / 6);
         botonR = espejo(botonR, true);
 
     }
@@ -73,9 +73,9 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
     public void dibujar(Canvas c) {
 
         c.drawBitmap(fondo1, 0, 0, null);
-        c.drawBitmap(botonL,20,altoPantalla-20-botonL.getHeight(),null);
-       c.drawBitmap(botonR,300,altoPantalla-20-botonR.getHeight(),null);
-        c.drawText(botonR.getHeight() + ":" + botonR.getWidth(), 10, 10 + p.getTextSize(), p);
+        c.drawBitmap(botonL, 20, altoPantalla - 20 - botonL.getHeight(), null);
+        c.drawBitmap(botonR, 300, altoPantalla - 20 - botonR.getHeight(), null);
+        c.drawText(altoPantalla + ":" + anchoPantalla, 10, 10 + p.getTextSize(), p);
         character.dibuja(c);
 
     }
@@ -87,9 +87,8 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
 
 
         }
-        if(movementI){
-            character.cambiaFrame();
-            character.setVelocidad(50);
+        if (movementI) {
+            character.setVelocidad(-50);
             character.moverL();
 
 
@@ -111,14 +110,12 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
         switch (accion) {
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_POINTER_DOWN:
-                if ((x > 300 && x<300+botonR.getWidth())&&(y>1180 && y<1180+botonR.getHeight())) {
+                if ((x > 300 && x < 300 + botonR.getWidth()) && (y > 1180 && y < 1180 + botonR.getHeight())) {
                     movementD = true;
                 }
-                if ((x > 20 && x<20+botonR.getWidth())&&(y>1180 && y<1180+botonR.getHeight())) {
+                if ((x > 20 && x < 20 + botonR.getWidth()) && (y > 1180 && y < 1180 + botonR.getHeight())) {
                     movementI = true;
                 }
-
-
                 return true;
 
 

@@ -98,15 +98,14 @@ public class Character {
     public void moverL(){
         if (System.currentTimeMillis() - tiempoVelocidad > tickVelocidad) {
 
-            this.x -= velocidad;
+            this.x += velocidad;
 
             if (this.x < 0) {
                 this.x=anchoPantalla-this.frames[frameActual].getWidth();
                 this.x = 0;
-                frames=framesI;
                 velocidad = 0;
             }
-            frames=framesI;
+
             if(this.y>altoPantalla)this.y=0;
             if(this.y<0)this.y=altoPantalla;
             this.tiempoVelocidad = System.currentTimeMillis();
